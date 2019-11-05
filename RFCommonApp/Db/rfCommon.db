@@ -1,0 +1,539 @@
+record(longin, "$(DEVICE):DMOD_VER")
+{
+    field(DESC, "Demod Version")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) demod_version")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+}
+
+record(longin, "$(DEVICE):PLL_VER")
+{
+    field(DESC, "PLL Version")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) pll_version")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+}
+
+record(ai, "$(DEVICE):LO_PHASE")
+{
+    field(DESC, "LO Phase")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) lo_phase")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(DEVICE):LO_AMPL")
+{
+    field(DESC, "LO Amplitude")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) lo_amplitude")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):LO_PHASERAW")
+{
+    field(DESC, "LO Phase Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) lo_phase_raw")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):LO_AMPLRAW")
+{
+    field(DESC, "LO Amplitude Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) lo_amplitude_raw")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):LO_LOCKCNT")
+{
+    field(DESC, "LO Lock Count")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) lo_lock_count")
+    field(SCAN, "I/O Intr")
+}
+
+record(bi, "$(DEVICE):LO_LOCKSTATUS")
+{
+    field(DESC, "LO Lock Status")
+    field(DTYP, "asynInt32")
+    field(INP,  "@aysn($(PORT),0) lo_lock_status")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "UnLocked")
+    field(ONAM, "Locked")
+}
+
+record(bi, "$(DEVICE):LO_LOSSSTATUS")
+{
+    field(DESC, "LO Loss Status")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) lo_loss_status")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "Presence")
+    field(ONAM, "Loss")
+}
+
+record(ai, "$(DEVICE):CLOCK_PHASE")
+{
+    field(DESC, "Clock Phase")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) clock_phase")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(DEVICE):CLOCK_AMPL")
+{
+    field(DESC, "Clock Amplitude")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) clock_amplitude")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):CLOCK_PHASERAW")
+{
+    field(DESC, "Clock Phase Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) clock_phase_raw")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):CLOCK_AMPLRAW")
+{
+    field(DESC, "Clock Amplitude Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) clock_amplitude_raw")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):CLOCK_LOCKCNT")
+{
+    field(DESC, "Clock Lock Count")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) clock_lock_count")
+    field(SCAN, "I/O Intr")
+}
+
+record(bi, "$(DEVICE):CLOCK_LOCKSTATUS")
+{
+    field(DESC, "Clock Lock Status")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) clock_lock_status")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "UnLocked")
+    field(ONAM, "Locked")
+}
+
+record(bi, "$(DEVICE):CLOCK_LOSSSTATUS")
+{
+    field(DESC, "Clock Loss Status")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) clock_loss_status")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "Presence")
+    field(ONAM, "Loss")
+}
+
+record(longout, "$(DEVICE):LOCK_THRESHOLD")
+{
+    field(DESC, "Lock Threshold")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lock_threshold")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "1638")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longout, "$(DEVICE):LOSS_THRESHOLD")
+{
+    field(DESC, "Loss Threshold")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) loss_threshold")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "8192")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(bo, "$(DEVICE):LO_LOCKCNTRESET")
+{
+    field(DESC, "LO Lock Count Reset")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_lock_count_reset")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Normal")
+    field(ONAM, "Reset")
+#    field(PINI, "YES")
+#    info(autosaveFields, "VAL")
+}
+
+record(bo, "$(DEVICE):CLOCK_LOCKCNTRESET")
+{
+    field(DESC, "Clock Lock Count Reset")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_lock_count_reset")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Normal")
+    field(ONAM, "Reset")
+#    field(PINI, "YES")
+#    info(autosaveFields, "VAL")
+}
+
+record(mbbo, "$(DEVICE):LO_DACMUX")
+{
+    field(DESC, "LO Dac Mux Control")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_dac_control_mux")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(ZRST, "PLL-Control")
+    field(ONST, "Manual-Control")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(mbbo, "$(DEVICE):CLOCK_DACMUX")
+{
+    field(DESC, "Clock Dac Mux Control")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_dac_control_mux")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(ZRST, "PLL-Control")
+    field(ONST, "Manual-Control")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(mbbo, "$(DEVICE):USER_DACMUX")
+{
+    field(DESC, "User Dac Mux Control")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) user_dac_control_mux")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "3")
+    field(FRVL, "4")
+    field(FVVL, "5")
+    field(ZRST, "User DAC (Streaming)")
+    field(ONST, "Manual Control")
+    field(TWST, "LO PLL Control")
+    field(THST, "LO PLL Phase")
+    field(FRST, "Clock PLL Control")
+    field(FVST, "Clock PLL Phase")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longout, "$(DEVICE):LO_REFSELECT")
+{
+    field(DESC, "LO Reference Select")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_ref_select")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):CLOCK_REFSELECT")
+{
+    field(DESC, "Clock Reference Select")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_ref_select")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(bo, "$(DEVICE):LO_POL")
+{
+    field(DESC, "LO Polarity")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_polarity")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Normal")
+    field(ONAM, "Inverse")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(bo, "$(DEVICE):CLOCK_POL")
+{
+    field(DESC, "Clock Polarity")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_polarity")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Normal")
+    field(ONAM, "Inverse")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):LO_DAC")
+{
+    field(DESC, "Set Value for LO DAC")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_dac")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):CLOCK_DAC")
+{
+    field(DESC, "Set Value for Clcok DAC")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_dac")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):LO_PLLSETPHASE")
+{
+    field(DESC, "LO PLL Set Phase")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_set_phase")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longout, "$(DEVICE):CLOCK_PLLSETPHASE")
+{
+    field(DESC, "Clock PLL Set Phase")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_set_phase")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):LO_KP")
+{
+    field(DESC, "LO Kp")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_kp")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "47975245")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longout, "$(DEVICE):LO_KI")
+{
+    field(DESC, "LO Ki")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_ki")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "27019")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longout, "$(DEVICE):CLOCK_KP")
+{
+    field(DESC, "Clock Kp")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clcok_kp")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "1330366119")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):CLOCK_KI")
+{
+    field(DESC, "Clock Ki")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) clock_ki")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "749257")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record (longin, "$(DEVICE):UCNV_VER")
+{
+    field(DESC, "UpConvert Version")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) upconv_version")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+}
+
+
+record(bo, "$(DEVICE):RF_ENABLE")
+{
+    field(DESC, "RF Enable")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) rf_enable")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(mbbo, "$(DEVICE):RF_MODE")
+{
+    field(DESC, "RF Output Mode")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) mode_select")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(ZRST, "IQ Table")
+    field(ONST, "CW")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(mbbo, "$(DEVICE):LO_SELECT")
+{
+    field(DESC, "LO Select")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) lo_select")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(ZRST, "Uncorrected DUC")
+    field(ONST, "Phase Corrected DUC")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(bo, "$(DEVICE):INVREFCORRECTION")
+{
+    field(DESC, "Invert Ref Correction")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) invert_correction")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(ao, "$(DEVICE):BASEBAND_PHASE")
+{
+    field(DESC, "Set Baseband Phase")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0) set_baseband_phase")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(ao, "$(DEVICE):BASEBAND_AMPL")
+{
+    field(DESC, "Set Basband Amplitude")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT),0) set_baseband_amplitude")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longin, "$(DEVICE):BASEBAND_I")
+{
+    field(DESC, "Baseband I")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) baseband_i")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(longin, "$(DEVICE):BASEBAND_Q")
+{
+    field(DESC, "Baseband Q")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) baseband_q")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(longout, "$(DEVICE):RFDACMAX")
+{
+    field(DESC, "RF DAC Max")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) dac_max")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "32767")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):RFDACMIN")
+{
+    field(DESC, "RF DAC Min")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) dac_min")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "-32768")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
+record(longout, "$(DEVICE):RFDACOFFSET")
+{
+    field(DESC, "RF DAC Offset")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) dac_offset")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}

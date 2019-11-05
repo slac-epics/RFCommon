@@ -1,0 +1,27 @@
+file "rfCommon.db" {
+    pattern { DEVICE }
+            {"$(DEV)"}
+}
+
+file "demod_rotation.db" {
+    pattern {   DEVICE,   CHN  }
+            { "$(DEV)",    "0" }
+            { "$(DEV)",    "1" }
+            { "$(DEV)",    "2" }
+            { "$(DEV)",    "3" }
+            { "$(DEV)",    "4" }
+            { "$(DEV)",    "5" }
+            { "$(DEV)",    "6" }
+            { "$(DEV)",    "7" }
+            { "$(DEV)",    "8" }
+            { "$(DEV)",    "9" }
+            { "$(DEV)",   "10" }
+            { "$(DEV)",   "11" }
+}
+
+
+file "upconv_reference.db" {
+    pattern {   DEVICE,  REF }
+            { "$(DEV)",  "0" }
+            { "$(DEV)",  "1" }
+}

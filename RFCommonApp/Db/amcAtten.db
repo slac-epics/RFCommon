@@ -1,0 +1,12 @@
+record(longout, "$(DEVICE):$(AMC)_ATTEN$(CHN)")
+{
+    field(DESC, "Attenuator for AMC $(AMC) CHN $(CHN)")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT), 0) atten_$(CHN)")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+

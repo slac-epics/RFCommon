@@ -1,0 +1,48 @@
+record(ai, "$(DEVICE):REF_PHASE$(REF)")
+{
+    field(DESC, "Phase for Reference $(REF)")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) ref_phase_$(REF)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(ai, "$(DEVICE):REF_AMPL$(REF)")
+{
+    field(DESC, "Amplitude for Reference $(REF)")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT),0) ref_amplitude_$(REF)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(longin, "$(DEVICE):REF_PHASERAW$(REF)")
+{
+    field(DESC, "Phase Raw Value for Reference $(REF)")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) ref_phase_raw_$(REF)")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(longin, "$(DEVICE):REF_AMPLRAW$(REF)")
+{
+    field(DESC, "Amplitude Raw Value for Reference $(REF)")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT),0) ref_amplitude_raw_$(REF)")
+    field(SCAN, "I/O Intr")
+}
+
+
+record(longout, "$(DEVICE):REF_SELECT$(REF)")
+{
+    field(DESC, "Reference Select for $(REF)")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) ref_select_$(REF)")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+}
+
+

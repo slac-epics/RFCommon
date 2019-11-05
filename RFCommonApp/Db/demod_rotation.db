@@ -1,0 +1,75 @@
+record(ai, "$(DEVICE):DMOD_PHASE$(CHN)")
+{
+    field(DESC, "Demod Phase")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT), 0) phase_$(CHN)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(DEVICE):DMOD_AMPL$(CHN)")
+{
+    field(DESC, "Demod Amplitude")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT), 0) amplitude_$(CHN)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):DMOD_PHASERAW$(CHN)")
+{
+    field(DESC, "Demod Phase Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) phase_raw_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):DMOD_AMPLRAW$(CHN)")
+{
+    field(DESC, "Demod Amplitude Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) amplitude_raw_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(DEVICE):DMOD_ROT_PHASE$(CHN)")
+{
+    field(DESC, "Demod Set Rot Phase")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT), 0) set_rot_phase_$(CHN)")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "0.")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record (ao, "$(DEVICE):DMOD_ROT_AMPL$(CHN)")
+{
+    field(DESC, "Demod Set Rot Amplitude")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT), 0) set_rot_amplitude_$(CHN)")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "1.")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+record(longin, "$(DEVICE):DMOD_ROT_I$(CHN)")
+{
+    field(DESC, "Demod Rotation I")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) get_rot_i_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):DMOD_ROT_Q$(CHN)")
+{
+    field(DESC, "Demod Rotation Q")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) get_rot_q_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+

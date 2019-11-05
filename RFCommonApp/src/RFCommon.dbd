@@ -1,0 +1,4 @@
+driver(rfCommonAsynDriver)
+registrar(cpswRFCommonAsynDriverRegister)
+registrar(cpswLlrfUpConvAsynDriverRegister)
+registrar(cpswLlrfDownConvAsynDriverRegister)

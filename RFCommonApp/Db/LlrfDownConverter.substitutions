@@ -1,0 +1,17 @@
+file "amcTemp.db" {
+    pattern  {    DEVICE,     AMC,    CHN }
+             {  "$(DEV)",   "DNC",     "0"}
+             {  "$(DEV)",   "DNC",     "1"}
+             {  "$(DEV)",   "DNC",     "2"}
+             {  "$(DEV)",   "DNC",     "3"}
+}
+
+file "amcAtten.db" {
+    pattern  {    DEVICE,     AMC,    CHN }
+             {  "$(DEV)",   "DNC",     "0"}
+             {  "$(DEV)",   "DNC",     "1"}
+             {  "$(DEV)",   "DNC",     "2"}
+             {  "$(DEV)",   "DNC",     "3"}
+             {  "$(DEV)",   "DNC",     "4"}
+             {  "$(DEV)",   "DNC",     "5"}
+}
