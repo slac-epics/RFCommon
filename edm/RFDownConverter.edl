@@ -1,0 +1,533 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 1276
+y 306
+w 312
+h 256
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-18.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 24
+y 4
+w 196
+h 14
+font "helvetica-bold-i-12.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "$(DEVICE) - Llrf Down Converter"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 67
+y 31
+w 54
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Attenuator"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 49
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN0"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 51
+y 51
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch0"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 70
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN1"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 50
+y 72
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch1"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 90
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN2"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 51
+y 92
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch2"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 110
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN3"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 50
+y 112
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch3"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 130
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN4"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 51
+y 132
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch4"
+}
+autoSize
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 95
+y 150
+w 40
+h 16
+controlPv "$(DEVICE):DNC_ATTEN5"
+format "decimal"
+font "helvetica-medium-r-10.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 2
+editable
+autoHeight
+motifWidget
+precision 0
+fieldLen "4"
+nullColor index 0
+newPos
+objType "controls"
+id "0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 50
+y 152
+w 20
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Ch5"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 156
+y 54
+w 37
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Temp 0"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 156
+y 79
+w 37
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Temp 1"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 156
+y 104
+w 37
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Temp 2"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 156
+y 129
+w 37
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Temp 3"
+}
+autoSize
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 206
+y 126
+w 56
+h 18
+controlPv "$(DEVICE):DNC_TEMP3"
+font "helvetica-medium-r-10.0"
+fgColor index 15
+bgColor index 9
+precision 3
+fieldLen "8"
+nullColor index 0
+fastUpdate
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 206
+y 101
+w 56
+h 18
+controlPv "$(DEVICE):DNC_TEMP2"
+font "helvetica-medium-r-10.0"
+fgColor index 15
+bgColor index 9
+precision 3
+fieldLen "8"
+nullColor index 0
+fastUpdate
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 206
+y 76
+w 56
+h 18
+controlPv "$(DEVICE):DNC_TEMP1"
+font "helvetica-medium-r-10.0"
+fgColor index 15
+bgColor index 9
+precision 3
+fieldLen "8"
+nullColor index 0
+fastUpdate
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 206
+y 51
+w 56
+h 18
+controlPv "$(DEVICE):DNC_TEMP0"
+font "helvetica-medium-r-10.0"
+fgColor index 15
+bgColor index 9
+precision 3
+fieldLen "8"
+nullColor index 0
+fastUpdate
+newPos
+objType "monitors"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 156
+y 30
+w 64
+h 12
+font "helvetica-bold-r-10.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Temperature"
+}
+autoSize
+endObjectProperties
+
