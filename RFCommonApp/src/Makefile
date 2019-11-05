@@ -14,7 +14,7 @@ INCLUDES += $(addprefix -I,$(BOOST_INCLUDE))
 ## this part is just for yaml loader driver
 INCLUDES += $(addprefix -I,$(CPSW_FRAMEWORK_INCLUDE))
 
-INCLUDES += $(addprefix -I,$(RFCOMMON_INCLUDE))
+INCLUDES += $(addprefix -I,$(COMMONRF_INCLUDE))
 
 INC += ATCACommon.h
 INC += RFCommon.h
@@ -37,17 +37,17 @@ RFCommon_SRCS   += RFDownConverter.cpp
 RFCommon_SRCS   += RFUpConverter.cpp
 
 cpsw_DIR = $(CPSW_FRAMEWORK_LIB)
-rfCommon_DIR = $(RFCOMMON_LIB)
+commonRF_DIR = $(COMMONRF_LIB)
 
 ATCACommon_LIBS += cpsw
-ATCACommon_LIBS += rfCommon
+ATCACommon_LIBS += commonRF
 ATCACommon_LIBS += asyn
 ATCACommon_LIBS += yamlLoader
 ATCACommon_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 
 RFCommon_LIBS += cpsw
-RFCommon_LIBS += rfCommon
+RFCommon_LIBS += commonRF
 RFCommon_LIBS += asyn
 RFCommon_LIBS += yamlLoader
 RFCommon_LIBS += $(EPICS_BASE_IOC_LIBS)
