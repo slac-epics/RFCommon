@@ -11,8 +11,6 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install)
 # databases, templates, substitutions like this
 #
-# ATCACommon
-DB += ATCACommon.db
 
 # RFCommon
 DB += RFCommon.db
