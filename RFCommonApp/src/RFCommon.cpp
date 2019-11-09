@@ -72,6 +72,7 @@ RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathStr
 
 
     rfCommon = IRFCommonFw::create(p_rfCommon);
+    rfCommon->createStream(p_root);
     ParameterSetup();
 
     uint32_t val;
