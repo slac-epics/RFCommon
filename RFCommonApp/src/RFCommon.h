@@ -26,7 +26,7 @@
 class RFCommonAsynDriver:asynPortDriver {
 
     public:
-        RFCommonAsynDriver(const char *portName, const char *pathString);
+        RFCommonAsynDriver(const char *portName, const char *pathString, const char *named_root = NULL);
         ~RFCommonAsynDriver();
         asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
         asynStatus writeFloat64(asynUser *pasynUser, epicsFloat64 value);
@@ -187,6 +187,7 @@ class RFCommonAsynDriver:asynPortDriver {
 
 typedef struct {
     ELLNODE     node;
+    char        *named_root;
     char        *portName;
     char        *pathName;
     RFCommonAsynDriver *pDrv;

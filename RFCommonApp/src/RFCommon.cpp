@@ -45,7 +45,7 @@ static ELLLIST *pDrvList = (ELLLIST *) NULL;
 
 
 
-RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathString)
+RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathString, const char *named_root)
     :asynPortDriver(portName,
                      1, /* number of elements of this device */
                      NUM_RFCOMMON_DET_PARAMS, /* number of asyn params of be cleared for each device */
@@ -64,7 +64,7 @@ RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathStr
     path = epicsStrDup(pathString);
 
     try {
-        p_root     = cpswGetRoot();
+        p_root     = (named_root && strlen(named_root))? cpswGetNamedRoot(named_root): cpswGetRoot();
         p_rfCommon = p_root->findByName(pathString);
     } catch (CPSWError &e) {
         fprintf(stderr, "CPSW Error: %s, file: %s, line: %d\n", e.getInfo().c_str(), __FILE__, __LINE__);
@@ -307,7 +307,8 @@ asynStatus RFCommonAsynDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 va
 drvNode_t* last_drvList(void)
 {
     drvNode_t *p = NULL;
-    if(!pDrvList || !ellCount(pDrvList)) return p;
+
+    if(!(pDrvList && ellCount(pDrvList))) return p;
 
     p = (drvNode_t *) ellLast(pDrvList);
 
@@ -345,6 +346,7 @@ static long rfCommonAsynDriverReport(int interest)
 
     p = (drvNode_t *) ellFirst(pDrvList);
     while(p && p->pDrv) {
+        printf("named_root:  %s\n", p->named_root);
         p->pDrv->report(interest);
         if(p->pUpConv   && p->pUpConv->pDrv)    p->pUpConv->pDrv->report(interest);
         if(p->pDownConv && p->pDownConv->pDrv)  p->pDownConv->pDrv->report(interest);
@@ -413,10 +415,11 @@ epicsExportAddress(drvet, rfCommonAsynDriver);
 
 extern "C" {
 /* consideration for Cexp */
-int cpswRFCommonAsynDriverConfigure(const char *portName, const char *pathName)
+int cpswRFCommonAsynDriverConfigure(const char *portName, const char *pathName, const char *named_root)
 {
     drvNode_t *p= (drvNode_t *) mallocMustSucceed(sizeof(drvNode_t), "RFCommon Driver");
 
+    p->named_root = (named_root)?epicsStrDup(named_root): cpswGetRootName();
     p->portName = epicsStrDup(portName);
     p->pathName = epicsStrDup(pathName);
 
@@ -437,11 +440,13 @@ int cpswRFCommonAsynDriverConfigure(const char *portName, const char *pathName)
 
 static const iocshArg   initArg0 = {"portName", iocshArgString};
 static const iocshArg   initArg1 = {"pathName", iocshArgString};
-static const iocshArg   * const initArgs[] = { &initArg0, &initArg1 };
-static const iocshFuncDef initFuncDef = {"cpswRFCommonAsynDriverConfigure", 2, initArgs};
+static const iocshArg   initArg2 = {"named_root (optional)", iocshArgString};
+static const iocshArg   * const initArgs[] = { &initArg0, &initArg1, &initArg2 };
+static const iocshFuncDef initFuncDef = {"cpswRFCommonAsynDriverConfigure", 3, initArgs};
 static void  initCallFunc(const iocshArgBuf *args)
 {
-    cpswRFCommonAsynDriverConfigure(args[0].sval, args[1].sval);
+    cpswRFCommonAsynDriverConfigure(args[0].sval, args[1].sval,
+                                    (args[2].sval && strlen(args[2].sval))? args[2].sval: NULL);
 }
 
 void cpswRFCommonAsynDriverRegister(void)
