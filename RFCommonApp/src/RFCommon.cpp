@@ -419,11 +419,11 @@ int cpswRFCommonAsynDriverConfigure(const char *portName, const char *pathName, 
 {
     drvNode_t *p= (drvNode_t *) mallocMustSucceed(sizeof(drvNode_t), "RFCommon Driver");
 
-    p->named_root = (named_root)?epicsStrDup(named_root): cpswGetRootName();
+    p->named_root = epicsStrDup( (named_root && strlen(named_root))? named_root: cpswGetRootName() );
     p->portName = epicsStrDup(portName);
     p->pathName = epicsStrDup(pathName);
 
-    p->pDrv     = new RFCommonAsynDriver((const char *) p->portName, (const char *) p->pathName);
+    p->pDrv     = new RFCommonAsynDriver((const char *) p->portName, (const char *) p->pathName, named_root);
     p->pUpConv  = NULL;
     p->pDownConv = NULL;
 
