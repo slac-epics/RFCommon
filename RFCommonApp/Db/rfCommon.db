@@ -62,7 +62,7 @@ record(bi, "$(DEVICE):LO_LOCKSTATUS")
 {
     field(DESC, "LO Lock Status")
     field(DTYP, "asynInt32")
-    field(INP,  "@aysn($(PORT),0) lo_lock_status")
+    field(INP,  "@asyn($(PORT),0) lo_lock_status")
     field(SCAN, "I/O Intr")
     field(ZNAM, "UnLocked")
     field(ONAM, "Locked")
