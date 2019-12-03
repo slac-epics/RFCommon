@@ -370,7 +370,7 @@ record(longout, "$(DEVICE):CLOCK_KP")
 {
     field(DESC, "Clock Kp")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),0) clcok_kp")
+    field(OUT,  "@asyn($(PORT),0) clock_kp")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(VAL,  "1330366119")
