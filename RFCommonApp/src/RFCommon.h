@@ -45,8 +45,10 @@ class RFCommonAsynDriver:asynPortDriver {
         void ParameterSetup(void);
 
     protected:
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
         int firstRFCommonParam;
 #define FIRST_RFCOMMON_PARAM     firstRFCommonParam
+#endif /* asyn version check, under 4.32 */
 
         int p_demod_version;
         int p_phase[MAX_CHN];
@@ -111,8 +113,10 @@ class RFCommonAsynDriver:asynPortDriver {
         int p_dacMin;
         int p_dacMax;
 
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
         int lastRFCommonParam;
 #define LAST_RFCOMMON_PARAM      lastRFCommonParam
+#endif /* asyn version check, under 4.32 */
 
 
 };

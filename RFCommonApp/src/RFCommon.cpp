@@ -48,7 +48,9 @@ static ELLLIST *pDrvList = (ELLLIST *) NULL;
 RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathString, const char *named_root)
     :asynPortDriver(portName,
                      1, /* number of elements of this device */
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
                      NUM_RFCOMMON_DET_PARAMS, /* number of asyn params of be cleared for each device */
+#endif /* asyn version check, under 4.32 */
                      asynInt32Mask | asynFloat64Mask | asynOctetMask | asynDrvUserMask | asynInt16ArrayMask | asynInt32ArrayMask | asynFloat64ArrayMask, /* Interface mask */
                      asynInt32Mask | asynFloat64Mask | asynOctetMask | asynEnumMask    | asynInt16ArrayMask | asynInt32ArrayMask | asynFloat64ArrayMask,  /* Interrupt mask */
                      1, /* asynFlags.  This driver does block and it is not multi-device, so flag is 1 */
