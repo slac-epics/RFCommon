@@ -36,19 +36,19 @@ class RFUpConvAsynDriver:asynPortDriver {
         void ParameterSetup(void);
 
     protected:
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
         int firstRFUpConvParam;
 #define FIRST_RFUPCONV_PARAM    firstRFUpConvParam
 #endif /* asyn version check, under 4.32 */
         int p_temp[UP_MAX_TEMP_CHN];
         int p_atten[UP_MAX_ATTEN_CHN];
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
         int lastRFUpConvParam;
 #define LAST_RFUPCONV_PARAM    lastRFUpConvParam
 #endif /* asyn version check, under 4.32 */
 };
 
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
 #define NUM_RFUPCONV_DET_PARAMS ((int) (&LAST_RFUPCONV_PARAM - &FIRST_RFUPCONV_PARAM-1))
 #endif /* asyn version check, under 4.32 */
 

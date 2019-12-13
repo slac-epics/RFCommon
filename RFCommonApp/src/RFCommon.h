@@ -45,7 +45,7 @@ class RFCommonAsynDriver:asynPortDriver {
         void ParameterSetup(void);
 
     protected:
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
         int firstRFCommonParam;
 #define FIRST_RFCOMMON_PARAM     firstRFCommonParam
 #endif /* asyn version check, under 4.32 */
@@ -113,7 +113,7 @@ class RFCommonAsynDriver:asynPortDriver {
         int p_dacMin;
         int p_dacMax;
 
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
         int lastRFCommonParam;
 #define LAST_RFCOMMON_PARAM      lastRFCommonParam
 #endif /* asyn version check, under 4.32 */
@@ -121,7 +121,9 @@ class RFCommonAsynDriver:asynPortDriver {
 
 };
 
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
 #define NUM_RFCOMMON_DET_PARAMS ((int) (&LAST_RFCOMMON_PARAM - &FIRST_RFCOMMON_PARAM-1))
+#endif /* asyn version check, under 4.32 */
 
 // RFCommon - Democulator
 #define STR_DEMOD_VER         "demod_version"

@@ -43,7 +43,7 @@ static const char *driverName = "RFUpConvAsynDriver";
 RFUpConvAsynDriver::RFUpConvAsynDriver(const char *portName, const char *pathString)
     : asynPortDriver(portName,
                      1, /* number of elements of this device */
-#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 || 32)
+#if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
                      NUM_RFUPCONV_DET_PARAMS, /* number of asyn params of be cleared for each device */
 #endif /* asyn version check, under 4.32 */
                      asynInt32Mask | asynFloat64Mask | asynOctetMask | asynDrvUserMask | asynInt16ArrayMask | asynInt32ArrayMask | asynFloat64ArrayMask, /* Interface mask */
