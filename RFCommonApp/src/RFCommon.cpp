@@ -306,7 +306,7 @@ asynStatus RFCommonAsynDriver::writeFloat64(asynUser *pasynUser, epicsFloat64 va
 
 
 
-drvNode_t* last_drvList(void)
+drvNode_t* last_drvList_RFCommon(void)
 {
     drvNode_t *p = NULL;
 

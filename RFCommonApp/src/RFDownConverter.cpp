@@ -126,7 +126,7 @@ asynStatus RFDownConvAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 valu
 extern "C" {
 int cpswLlrfDownConvAsynDriverConfigure(const char *portName, const char *pathName)
 {
-    drvNode_t    *pList   = last_drvList();
+    drvNode_t    *pList   = last_drvList_RFCommon();
     downConvNode_t *pDownConv = (downConvNode_t *) mallocMustSucceed(sizeof(downConvNode_t), "LlrfDownConverter Driver");
 
     pDownConv->portName = epicsStrDup(portName);

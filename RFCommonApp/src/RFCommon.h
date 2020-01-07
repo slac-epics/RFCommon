@@ -201,7 +201,7 @@ typedef struct {
     downConvNode_t     *pDownConv;
 }   drvNode_t;
 
-drvNode_t* last_drvList(void);
+drvNode_t* last_drvList_RFCommon(void);
 
 
 #endif /* RF_COMMON_ASYN_DRIVER_H */

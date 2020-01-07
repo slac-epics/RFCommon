@@ -126,7 +126,7 @@ asynStatus RFUpConvAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 extern "C" {
 int cpswLlrfUpConvAsynDriverConfigure(const char *portName, const char *pathName)
 {
-    drvNode_t    *pList   = last_drvList();
+    drvNode_t    *pList   = last_drvList_RFCommon();
     upConvNode_t *pUpConv = (upConvNode_t *) mallocMustSucceed(sizeof(upConvNode_t), "LlrfUpConverter Driver");
 
     pUpConv->portName = epicsStrDup(portName);
