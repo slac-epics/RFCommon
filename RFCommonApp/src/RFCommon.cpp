@@ -425,7 +425,7 @@ int cpswRFCommonAsynDriverConfigure(const char *portName, const char *pathName, 
     p->portName = epicsStrDup(portName);
     p->pathName = epicsStrDup(pathName);
 
-    p->pDrv     = new RFCommonAsynDriver((const char *) p->portName, (const char *) p->pathName, named_root);
+    p->pDrv     = new RFCommonAsynDriver((const char *) p->portName, (const char *) p->pathName, (const char *)p->named_root);
     p->pUpConv  = NULL;
     p->pDownConv = NULL;
 

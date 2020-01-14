@@ -22,7 +22,7 @@
 
 class RFUpConvAsynDriver:asynPortDriver {
     public:
-        RFUpConvAsynDriver(const char *portName, const char *pathString);
+        RFUpConvAsynDriver(const char *portName, const char *pathString, const char *named_root = NULL);
         ~RFUpConvAsynDriver();
         asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
 

@@ -22,7 +22,7 @@
 
 class RFDownConvAsynDriver:asynPortDriver {
     public:
-        RFDownConvAsynDriver(const char *portName, const char *pathString);
+        RFDownConvAsynDriver(const char *portName, const char *pathString, const char *named_root = NULL);
         ~RFDownConvAsynDriver();
         asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
 

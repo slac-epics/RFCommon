@@ -40,7 +40,7 @@
 
 static const char *driverName = "RFDownConvAsynDriver";
 
-RFDownConvAsynDriver::RFDownConvAsynDriver(const char *portName, const char *pathString)
+RFDownConvAsynDriver::RFDownConvAsynDriver(const char *portName, const char *pathString, const char *named_root)
     : asynPortDriver(portName,
                      1, /* number of elements of this device */
 #if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
@@ -60,7 +60,7 @@ RFDownConvAsynDriver::RFDownConvAsynDriver(const char *portName, const char *pat
     path = epicsStrDup(pathString);
 
     try {
-        p_root     = cpswGetRoot();
+        p_root     = (named_root)?cpswGetNamedRoot(named_root):cpswGetRoot();
         p_rfDownConv = p_root->findByName(pathString);
     } catch (CPSWError &e) {
         fprintf(stderr, "CPSW Error: %s, file: %s, line %d\n", e.getInfo().c_str(), __FILE__, __LINE__);
@@ -132,7 +132,8 @@ int cpswLlrfDownConvAsynDriverConfigure(const char *portName, const char *pathNa
     pDownConv->portName = epicsStrDup(portName);
     pDownConv->pathName = epicsStrDup(pathName);
 
-    pDownConv->pDrv = new RFDownConvAsynDriver((const char *) pDownConv->portName, (const char *) pDownConv->pathName);
+    pDownConv->pDrv = new RFDownConvAsynDriver((const char *) pDownConv->portName, (const char *) pDownConv->pathName, 
+                                               (pList && pList->named_root)?(const char *) pList->named_root: (const char*) NULL);
 
     if(pList && pDownConv) pList->pDownConv = pDownConv;
    
