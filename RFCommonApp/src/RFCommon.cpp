@@ -374,6 +374,8 @@ static long rfCommonAsynDriverPoll(void)
         if(p->pDownConv && p->pDownConv->pDrv)  p->pDownConv->pDrv->poll();
         p = (drvNode_t *) ellNext(&p->node);
     }
+
+    return 0;
 }
 
 static long rfCommonAsynDriverPollThread(void *p)
