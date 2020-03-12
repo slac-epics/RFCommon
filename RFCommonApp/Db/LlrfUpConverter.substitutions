@@ -8,8 +8,8 @@ file "amcTemp.db" {
 
 file "amcAtten.db" {
     pattern  {    DEVICE,     AMC,    CHN }
-             {  "$(DEV)",   "UPC",     "0"}
              {  "$(DEV)",   "UPC",     "1"}
-             {  "$(DEV)",   "UPC",     "2"}
+             {  "$(DEV)",   "UPC",     "0"}
              {  "$(DEV)",   "UPC",     "3"}
+             {  "$(DEV)",   "UPC",     "2"}
 }
