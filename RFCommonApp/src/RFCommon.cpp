@@ -22,6 +22,7 @@
 #include <epicsMutex.h>
 #include <epicsEvent.h>
 #include <epicsPrint.h>
+#include <epicsExit.h>
 #include <ellLib.h>
 #include <iocsh.h>
 
@@ -43,6 +44,8 @@
 static const char *driverName  = "RFCommonAsynDriver";
 static ELLLIST *pDrvList = (ELLLIST *) NULL;
 
+static bool           stopLoop = false;
+static epicsEventId   shutdownEvent;
 
 
 RFCommonAsynDriver::RFCommonAsynDriver(const char *portName, const char *pathString, const char *named_root)
@@ -381,12 +384,21 @@ static long rfCommonAsynDriverPoll(void)
 static long rfCommonAsynDriverPollThread(void *p)
 {
 
-    while(1) {
+    while(!stopLoop) {
         rfCommonAsynDriverPoll();
         epicsThreadSleep(.5);
     }
+
+    epicsEventSignal(shutdownEvent);
  
     return 0;   
+}
+
+static void stopPollThread(void *p)
+{
+    stopLoop = true;
+    epicsEventWait(shutdownEvent);
+    epicsPrintf("rfCommonAsynDriver: Stop polling thread (%s)\n", (char *) p);
 }
 
 
@@ -397,9 +409,12 @@ static long rfCommonAsynDriverInitialize(void)
     char name[64];
 
     sprintf(name, "mon_%s", driverName);
+    stopLoop = false;
+    shutdownEvent = epicsEventMustCreate(epicsEventEmpty);
     epicsThreadCreate(name, epicsThreadPriorityHigh - 10,
                       epicsThreadGetStackSize(epicsThreadStackMedium),
                       (EPICSTHREADFUNC) rfCommonAsynDriverPollThread, (void *) NULL);
+    epicsAtExit3((epicsExitFunc) stopPollThread, (void*) epicsStrDup(name), epicsStrDup(name));
 
     return 0;
 }

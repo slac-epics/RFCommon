@@ -1,3 +1,6 @@
+R1.2.0         April 6, 2020   Kukhee Kim
+                  - Implement a graceful shutdown
+
 R1.1.0         Mar 11, 2020    Kukhee Kim
                   -  re-arrange attenuator index to reflect front pannel order
 
