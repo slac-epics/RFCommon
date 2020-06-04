@@ -105,6 +105,11 @@ void RFCommonAsynDriver::poll(void)
         setDoubleParam(p_phase[i], phase);          setIntegerParam(p_phaseRaw[i], raw_phase);
         setDoubleParam(p_amplitude[i], amplitude);  setIntegerParam(p_amplitudeRaw[i], raw_amplitude);
 
+        phase     = rfCommon->getMaxPhase(&raw_phase, i);
+        amplitude = rfCommon->getMaxAmp(&raw_amplitude, i);
+        setDoubleParam(p_phaseMaxHold[i], phase);         setIntegerParam(p_phaseRawMaxHold[i], raw_phase);
+        setDoubleParam(p_amplitudeMaxHold[i], amplitude); setIntegerParam(p_amplitudeRawMaxHold[i], raw_amplitude);
+
         rfCommon->getRotationIQ(&rot_i, &rot_q, i);
         setIntegerParam(p_getRotI[i], rot_i);
         setIntegerParam(p_getRotQ[i], rot_q);
@@ -149,12 +154,19 @@ void RFCommonAsynDriver::ParameterSetup(void)
     char param_name[64];
 
     sprintf(param_name, STR_DEMOD_VER); createParam(param_name, asynParamInt32, &p_demod_version);
+    sprintf(param_name, STR_MAXHOLD_RESET); createParam(param_name, asynParamInt32, &p_maxHoldReset);
 
     for(int i = 0; i<MAX_CHN; i++) {
         sprintf(param_name, STR_PHASE, i);             createParam(param_name, asynParamFloat64, &(p_phase[i]));
         sprintf(param_name, STR_AMPLITUDE, i);         createParam(param_name, asynParamFloat64, &(p_amplitude[i]));
         sprintf(param_name, STR_PHASE_RAW, i);         createParam(param_name, asynParamInt32,   &(p_phaseRaw[i]));
         sprintf(param_name, STR_AMPLITUDE_RAW, i);     createParam(param_name, asynParamInt32,   &(p_amplitudeRaw[i]));
+
+        sprintf(param_name, STR_PHASE_MAXHOLD, i);             createParam(param_name, asynParamFloat64, &(p_phaseMaxHold[i]));
+        sprintf(param_name, STR_AMPLITUDE_MAXHOLD, i);         createParam(param_name, asynParamFloat64, &(p_amplitudeMaxHold[i]));
+        sprintf(param_name, STR_PHASE_RAW_MAXHOLD, i);         createParam(param_name, asynParamInt32,   &(p_phaseRawMaxHold[i]));
+        sprintf(param_name, STR_AMPLITUDE_RAW_MAXHOLD, i);     createParam(param_name, asynParamInt32,   &(p_amplitudeRawMaxHold[i]));
+
         sprintf(param_name, STR_SET_ROT_PHASE, i);     createParam(param_name, asynParamFloat64, &(p_setRotPhase[i]));
         sprintf(param_name, STR_SET_ROT_AMPLITUDE, i); createParam(param_name, asynParamFloat64, &(p_setRotAmplitude[i]));
         sprintf(param_name, STR_GET_ROT_I, i);         createParam(param_name, asynParamInt32, &(p_getRotI[i]));
@@ -232,7 +244,8 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
 
     status = (asynStatus) setIntegerParam(function, value);
 
-    if(function == p_lockThreshold)              rfCommon->setLockThreshold((uint32_t) value);
+    if(function == p_maxHoldReset)               rfCommon->maxHoldReset((uint32_t) value);
+    else if(function == p_lockThreshold)         rfCommon->setLockThreshold((uint32_t) value);
     else if(function == p_lossThreshold)         rfCommon->setLossThreshold((uint32_t) value);
     else if(function == p_loLockCountReset)      rfCommon->loLockCountReset((uint32_t) value);
     else if(function == p_clockLockCountReset)   rfCommon->clockLockCountReset((uint32_t) value);

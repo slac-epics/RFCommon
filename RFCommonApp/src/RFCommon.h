@@ -51,10 +51,18 @@ class RFCommonAsynDriver:asynPortDriver {
 #endif /* asyn version check, under 4.32 */
 
         int p_demod_version;
+
         int p_phase[MAX_CHN];
         int p_phaseRaw[MAX_CHN];
         int p_amplitude[MAX_CHN];
         int p_amplitudeRaw[MAX_CHN];
+
+        int p_maxHoldReset;
+        int p_phaseMaxHold[MAX_CHN];
+        int p_phaseRawMaxHold[MAX_CHN];
+        int p_amplitudeMaxHold[MAX_CHN];
+        int p_amplitudeRawMaxHold[MAX_CHN];
+
         int p_setRotPhase[MAX_CHN];
         int p_setRotAmplitude[MAX_CHN];
         int p_getRotI[MAX_CHN];
@@ -127,10 +135,18 @@ class RFCommonAsynDriver:asynPortDriver {
 
 // RFCommon - Democulator
 #define STR_DEMOD_VER         "demod_version"
+#define STR_MAXHOLD_RESET     "maxHold_reset"
+
 #define STR_PHASE             "phase_%d"
 #define STR_AMPLITUDE         "amplitude_%d"
 #define STR_PHASE_RAW         "phase_raw_%d"
 #define STR_AMPLITUDE_RAW     "amplitude_raw_%d"
+
+#define STR_PHASE_MAXHOLD             "phaseMaxHold_%d"
+#define STR_AMPLITUDE_MAXHOLD         "amplitudeMaxHold_%d"
+#define STR_PHASE_RAW_MAXHOLD         "phase_rawMaxHold_%d"
+#define STR_AMPLITUDE_RAW_MAXHOLD     "amplitude_rawMaxHold_%d"
+
 #define STR_SET_ROT_PHASE     "set_rot_phase_%d"
 #define STR_SET_ROT_AMPLITUDE "set_rot_amplitude_%d"
 #define STR_GET_ROT_I         "get_rot_i_%d"
