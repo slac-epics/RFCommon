@@ -32,6 +32,46 @@ record(longin, "$(DEVICE):DMOD_AMPLRAW$(CHN)")
     field(SCAN, "I/O Intr")
 }
 
+#
+#
+
+record(ai, "$(DEVICE):DMOD_PHASE_MAXHLD$(CHN)")
+{
+    field(DESC, "Demod Phase")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT), 0) phaseMaxHold_$(CHN)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(DEVICE):DMOD_AMPL_MAXHLD$(CHN)")
+{
+    field(DESC, "Demod Amplitude")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT), 0) amplitudeMaxHold_$(CHN)")
+    field(PREC, "4")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):DMOD_PHASERAW_MAXHLD$(CHN)")
+{
+    field(DESC, "Demod Phase Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) phase_rawMaxHold_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(DEVICE):DMOD_AMPLRAW_MAXHLD$(CHN)")
+{
+    field(DESC, "Demod Amplitude Raw Value")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT), 0) amplitude_rawMaxHold_$(CHN)")
+    field(SCAN, "I/O Intr")
+}
+
+#
+#
+
 record(ao, "$(DEVICE):DMOD_ROT_PHASE$(CHN)")
 {
     field(DESC, "Demod Set Rot Phase")

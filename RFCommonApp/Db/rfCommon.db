@@ -537,3 +537,17 @@ record(longout, "$(DEVICE):RFDACOFFSET")
     field(PINI, "YES")
     info(autosaveFields, "VAL")
 }
+
+record(bo, "$(DEVICE):MAXHOLD_RESET")
+{
+    field(DESC, "Reset Max Hold")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) maxHold_reset")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(ZNAM, "Normal")
+    field(ONAM, "Reset")
+#    field(PINI, "YES")
+#    info(autosaveFields, "VAL")
+}
+
