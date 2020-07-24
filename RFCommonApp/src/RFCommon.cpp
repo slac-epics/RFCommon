@@ -201,6 +201,7 @@ void RFCommonAsynDriver::ParameterSetup(void)
     sprintf(param_name, STR_CLOCK_POLARITY);         createParam(param_name, asynParamInt32, &p_clockPolarity);
     sprintf(param_name, STR_LO_DAC);                 createParam(param_name, asynParamInt32, &p_loDac);
     sprintf(param_name, STR_CLOCK_DAC);              createParam(param_name, asynParamInt32, &p_clockDac);
+    sprintf(param_name, STR_USER_DAC);               createParam(param_name, asynParamInt32, &p_userDac);
     sprintf(param_name, STR_LO_SET_PHASE);           createParam(param_name, asynParamInt32, &p_loSetPhase);
     sprintf(param_name, STR_CLOCK_SET_PHASE);        createParam(param_name, asynParamInt32, &p_clockSetPhase);
     sprintf(param_name, STR_LO_KP);                  createParam(param_name, asynParamInt32, &p_loKp);
@@ -258,6 +259,7 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     else if(function == p_clockPolarity)         rfCommon->clockPolarity((uint32_t) value);
     else if(function == p_loDac)                 rfCommon->setLODac((uint32_t) value);
     else if(function == p_clockDac)              rfCommon->setClockDac((uint32_t) value);
+    else if(function == p_userDac)               rfCommon->setUserDac((uint32_t) value);
     else if(function == p_loPhase)               rfCommon->setLOPhase((uint32_t) value);
     else if(function == p_clockPhase)            rfCommon->setClockPhase((uint32_t) value);
     else if(function == p_loKp)                  rfCommon->setLOKp((uint32_t) value);

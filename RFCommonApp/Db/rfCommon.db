@@ -319,6 +319,18 @@ record(longout, "$(DEVICE):CLOCK_DAC")
 }
 
 
+record(longout, "$(DEVICE):USER_DAC")
+{
+    field(DESC, "Set Value for User DAC")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) user_dac")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
 record(longout, "$(DEVICE):LO_PLLSETPHASE")
 {
     field(DESC, "LO PLL Set Phase")

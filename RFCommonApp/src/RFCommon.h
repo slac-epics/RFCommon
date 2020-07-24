@@ -96,6 +96,7 @@ class RFCommonAsynDriver:asynPortDriver {
         int p_clockPolarity;
         int p_loDac;
         int p_clockDac;
+        int p_userDac;
         int p_loSetPhase;
         int p_clockSetPhase;
         int p_loKp;
@@ -180,6 +181,7 @@ class RFCommonAsynDriver:asynPortDriver {
 #define STR_CLOCK_POLARITY          "clock_polarity"
 #define STR_LO_DAC                  "lo_dac"
 #define STR_CLOCK_DAC               "clock_dac"
+#define STR_USER_DAC                "user_dac"
 #define STR_LO_SET_PHASE            "lo_set_phase"
 #define STR_CLOCK_SET_PHASE         "clock_set_phase"
 #define STR_LO_KP                   "lo_kp"
