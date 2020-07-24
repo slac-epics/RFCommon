@@ -1,3 +1,6 @@
+R1.4.0         July 24, 2020   Jesus Vasquez
+                  - Update commRF API version to R1.2.0.
+
 R1.3.0         June 4, 2020    Kukhee Kim
                   - implement max hold and reset for Demod
                   - build with commonRF R1.1.0
