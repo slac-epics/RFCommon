@@ -1,3 +1,9 @@
+R1.5.0         August 11, 2020 Jesus Vasquez
+                  - Update commRF API to version R1.3.0.
+                  - Update the PLL reset functions which now are 
+                    CPSW commands in commRF version R1.3.0.
+                  - Bug fixes. 
+
 R1.4.0         July 24, 2020   Jesus Vasquez
                   - Update commRF API version to R1.2.0.
 
