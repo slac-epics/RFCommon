@@ -190,8 +190,8 @@ void RFCommonAsynDriver::ParameterSetup(void)
     sprintf(param_name, STR_CLOCK_LOSS_STATUS);   createParam(param_name, asynParamInt32, &p_clockLossStatus);
     sprintf(param_name, STR_LOCK_THRESHOLD);      createParam(param_name, asynParamInt32, &p_lockThreshold);
     sprintf(param_name, STR_LOSS_THRESHOLD);      createParam(param_name, asynParamInt32, &p_lossThreshold);
-    sprintf(param_name, STR_LO_LOCK_COUNT_RESET); createParam(param_name, asynParamInt32, &p_loLockCountReset);
-    sprintf(param_name, STR_CLOCK_LOCK_COUNT_RESET); createParam(param_name, asynParamInt32, &p_clockLockCountReset);
+    sprintf(param_name, STR_RESET_LO_LOCK_COUNT); createParam(param_name, asynParamInt32, &p_resetLOLockCount);
+    sprintf(param_name, STR_RESET_CLOCK_LOCK_COUNT); createParam(param_name, asynParamInt32, &p_resetClockLockCount);
     sprintf(param_name, STR_LO_DAC_CONTROL_MUX);     createParam(param_name, asynParamInt32, &p_loDacControlMux);
     sprintf(param_name, STR_CLOCK_DAC_CONTROL_MUX);  createParam(param_name, asynParamInt32, &p_clockDacControlMux);
     sprintf(param_name, STR_USER_DAC_CONTROL_MUX);   createParam(param_name, asynParamInt32, &p_userDacControlMux);
@@ -248,8 +248,6 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     if(function == p_maxHoldReset)               rfCommon->maxHoldReset((uint32_t) value);
     else if(function == p_lockThreshold)         rfCommon->setLockThreshold((uint32_t) value);
     else if(function == p_lossThreshold)         rfCommon->setLossThreshold((uint32_t) value);
-    else if(function == p_loLockCountReset)      rfCommon->loLockCountReset((uint32_t) value);
-    else if(function == p_clockLockCountReset)   rfCommon->clockLockCountReset((uint32_t) value);
     else if(function == p_loDacControlMux)       rfCommon->loDacControlMux((uint32_t) value);
     else if(function == p_clockDacControlMux)    rfCommon->clockDacControlMux((uint32_t) value);
     else if(function == p_userDacControlMux)     rfCommon->userDacControlMux((uint32_t) value);
@@ -273,7 +271,13 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     else if(function == p_dacOffset)             rfCommon->setDacOffset((uint32_t) value);
     else if(function == p_dacMin)                rfCommon->setDacMin((uint32_t) value);
     else if(function == p_dacMax)                rfCommon->setDacMax((uint32_t) value);
-    else 
+    else if(function == p_resetLOLockCount) {
+        if (value)
+            rfCommon->resetLOLockCount();
+    } else if (function == p_resetClockLockCount) {
+        if (value)
+            rfCommon->resetClockLockCount();
+    } else
 
     for(int i = 0; i < MAX_REF; i++) {
         if(function == p_refSelect[i]) {

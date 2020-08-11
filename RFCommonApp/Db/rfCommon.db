@@ -166,9 +166,9 @@ record(longout, "$(DEVICE):LOSS_THRESHOLD")
 
 record(bo, "$(DEVICE):LO_LOCKCNTRESET")
 {
-    field(DESC, "LO Lock Count Reset")
+    field(DESC, "Reset LO Lock Counter")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),0) lo_lock_count_reset")
+    field(OUT,  "@asyn($(PORT),0) reset_lo_lock_count")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(ZNAM, "Normal")
@@ -179,9 +179,9 @@ record(bo, "$(DEVICE):LO_LOCKCNTRESET")
 
 record(bo, "$(DEVICE):CLOCK_LOCKCNTRESET")
 {
-    field(DESC, "Clock Lock Count Reset")
+    field(DESC, "Reset Clock Lock Counter")
     field(DTYP, "asynInt32")
-    field(OUT,  "@asyn($(PORT),0) clock_lock_count_reset")
+    field(OUT,  "@asyn($(PORT),0) reset_clock_lock_count")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(ZNAM, "Normal")

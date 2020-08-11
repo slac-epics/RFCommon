@@ -85,8 +85,8 @@ class RFCommonAsynDriver:asynPortDriver {
         int p_clockLossStatus;
         int p_lockThreshold;
         int p_lossThreshold;
-        int p_loLockCountReset;
-        int p_clockLockCountReset;
+        int p_resetLOLockCount;
+        int p_resetClockLockCount;
         int p_loDacControlMux;
         int p_clockDacControlMux;
         int p_userDacControlMux;
@@ -170,8 +170,8 @@ class RFCommonAsynDriver:asynPortDriver {
 #define STR_CLOCK_LOSS_STATUS   "clock_loss_status"
 #define STR_LOCK_THRESHOLD      "lock_threshold"
 #define STR_LOSS_THRESHOLD      "loss_threshold"
-#define STR_LO_LOCK_COUNT_RESET    "lo_lock_count_reset"
-#define STR_CLOCK_LOCK_COUNT_RESET "clock_lock_count_reset"
+#define STR_RESET_LO_LOCK_COUNT    "reset_lo_lock_count"
+#define STR_RESET_CLOCK_LOCK_COUNT "reset_clock_lock_count"
 #define STR_LO_DAC_CONTROL_MUX     "lo_dac_control_mux"
 #define STR_CLOCK_DAC_CONTROL_MUX  "clock_dac_control_mux"
 #define STR_USER_DAC_CONTROL_MUX    "user_dac_control_mux"
