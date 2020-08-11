@@ -277,12 +277,12 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     } else if (function == p_resetClockLockCount) {
         if (value)
             rfCommon->resetClockLockCount();
-    } else
-
-    for(int i = 0; i < MAX_REF; i++) {
-        if(function == p_refSelect[i]) {
-            rfCommon->refChnSelect((uint32_t) value, i);
-            break;
+    } else {
+        for(int i = 0; i < MAX_REF; i++) {
+            if(function == p_refSelect[i]) {
+                rfCommon->refChnSelect((uint32_t) value, i);
+                break;
+            }
         }
     }
 
