@@ -7,9 +7,9 @@ file "amcTemp.db" {
 }
 
 file "amcAtten.db" {
-    pattern  {    DEVICE,     AMC,    CHN }
-             {  "$(DEV)",   "UPC",     "1"}
-             {  "$(DEV)",   "UPC",     "0"}
-             {  "$(DEV)",   "UPC",     "3"}
-             {  "$(DEV)",   "UPC",     "2"}
+    pattern  {    DEVICE,     AMC,    CHN,         LINR,     EGUL,         EGUF,    EGU,  PREC,   DRVL,      DRVH }
+             {  "$(DEV)",   "UPC",     "1",    "LINEAR",   "31.5",     "-32736",   "dB",   "1",    "0",    "31.5" }
+             {  "$(DEV)",   "UPC",     "0",    "LINEAR",   "31.5",     "-32736",   "dB",   "1",    "0",    "31.5" }
+             {  "$(DEV)",   "UPC",     "3",    "LINEAR",   "31.5",     "-32736",   "dB",   "1",    "0",    "31.5" }
+             {  "$(DEV)",   "UPC",     "2",    "LINEAR",   "31.5",     "-32736",   "dB",   "1",    "0",    "31.5" }
 }

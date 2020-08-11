@@ -1,4 +1,4 @@
-record(longout, "$(DEVICE):$(AMC)_ATTEN$(CHN)")
+record(ao, "$(DEVICE):$(AMC)_ATTEN$(CHN)")
 {
     field(DESC, "Attenuator for AMC $(AMC) CHN $(CHN)")
     field(DTYP, "asynInt32")
@@ -6,6 +6,13 @@ record(longout, "$(DEVICE):$(AMC)_ATTEN$(CHN)")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(PINI, "YES")
+    field(EGU,  "$(EGU)")
+    field(LINR, "$(LINR)")
+    field(EGUL, "$(EGUL)")
+    field(EGUF, "$(EGUF)")
+    field(DRVH, "$(DRVH)")
+    field(DRVL, "$(DRVL)")
+    field(PREC, "$(PREC)")
     info(autosaveFields, "VAL")
 }
 
