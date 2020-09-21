@@ -539,6 +539,19 @@ record(longout, "$(DEVICE):RFDACMIN")
 }
 
 
+record(longout, "$(DEVICE):RFDACCORRGAIN")
+{
+    field(DESC, "RF DAC Min")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT),0) correction_gain")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(VAL,  "4096")
+    field(PINI, "YES")
+    info(autosaveFields, "VAL")
+}
+
+
 record(longout, "$(DEVICE):RFDACOFFSET")
 {
     field(DESC, "RF DAC Offset")

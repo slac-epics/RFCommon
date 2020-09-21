@@ -1,3 +1,6 @@
+R1.6.0         September 21, 2020   Kukhee Kim
+                  - add correction gain for UpConverter
+
 R1.5.0         August 11, 2020 Jesus Vasquez
                   - Update commRF API to version R1.3.0.
                   - Update the PLL reset functions which now are 

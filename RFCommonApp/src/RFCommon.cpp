@@ -234,6 +234,7 @@ void RFCommonAsynDriver::ParameterSetup(void)
     sprintf(param_name, STR_DAC_OFFSET);             createParam(param_name, asynParamInt32, &p_dacOffset);
     sprintf(param_name, STR_DAC_MIN);                createParam(param_name, asynParamInt32, &p_dacMin);
     sprintf(param_name, STR_DAC_MAX);                createParam(param_name, asynParamInt32, &p_dacMax);
+    sprintf(param_name, STR_CORRECTION_GAIN);        createParam(param_name, asynParamInt32, &p_correctionGain);
 }
 
 
@@ -271,6 +272,7 @@ asynStatus RFCommonAsynDriver::writeInt32(asynUser *pasynUser, epicsInt32 value)
     else if(function == p_dacOffset)             rfCommon->setDacOffset((uint32_t) value);
     else if(function == p_dacMin)                rfCommon->setDacMin((uint32_t) value);
     else if(function == p_dacMax)                rfCommon->setDacMax((uint32_t) value);
+    else if(function == p_correctionGain)        rfCommon->setCorrectionGain((uint32_t) value);
     else if(function == p_resetLOLockCount) {
         if (value)
             rfCommon->resetLOLockCount();

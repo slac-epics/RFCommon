@@ -121,6 +121,7 @@ class RFCommonAsynDriver:asynPortDriver {
         int p_dacOffset;
         int p_dacMin;
         int p_dacMax;
+        int p_correctionGain;
 
 #if (ASYN_VERSION <<8 | ASYN_REVISION) < (4<<8 | 32)
         int lastRFCommonParam;
@@ -206,6 +207,7 @@ class RFCommonAsynDriver:asynPortDriver {
 #define STR_DAC_OFFSET              "dac_offset"
 #define STR_DAC_MIN                 "dac_min"
 #define STR_DAC_MAX                 "dac_max"
+#define STR_CORRECTION_GAIN         "correction_gain"
 
 
 
