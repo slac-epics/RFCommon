@@ -114,4 +114,9 @@ record(longin, "$(DEVICE):DMOD_ROT_Q$(CHN)")
     field(SCAN, "I/O Intr")
 }
 
+record(stringin, "$(DEVICE):DMOD_LABEL$(CHN)")
+{
+    field(DESC, "Demod channel label")
+    info(autosaveFields, "VAL")
+}
 
