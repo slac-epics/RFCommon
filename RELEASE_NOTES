@@ -1,3 +1,7 @@
+R1.7.0         October 8, 2020 Jesus Vasquez
+                  - Add new label PVs, for each demod channel
+                  - Set PREC = 3 for DMOD_ROT_PHASE and DMOD_ROT_AMPL PVs
+
 R1.6.0         September 21, 2020   Kukhee Kim
                   - add correction gain for UpConverter
 
