@@ -81,6 +81,7 @@ record(ao, "$(DEVICE):DMOD_ROT_PHASE$(CHN)")
     field(SCAN, "Passive")
     field(VAL,  "0.")
     field(PINI, "YES")
+    field(PREC, "3")
     info(autosaveFields, "VAL")
 }
 
@@ -93,6 +94,7 @@ record (ao, "$(DEVICE):DMOD_ROT_AMPL$(CHN)")
     field(SCAN, "Passive")
     field(VAL,  "1.")
     field(PINI, "YES")
+    field(PREC, "3")
     info(autosaveFields, "VAL")
 }
 
