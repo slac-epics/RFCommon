@@ -1,3 +1,6 @@
+R1.7.1         October 24, 2020     Kukhee Kim
+                  - add autosave for REF_SELECT PVs for RF DAC
+
 R1.7.0         October 8, 2020 Jesus Vasquez
                   - Add new label PVs, for each demod channel
                   - Set PREC = 3 for DMOD_ROT_PHASE and DMOD_ROT_AMPL PVs

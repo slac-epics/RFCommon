@@ -38,11 +38,13 @@ record(longin, "$(DEVICE):REF_AMPLRAW$(REF)")
 
 record(longout, "$(DEVICE):REF_SELECT$(REF)")
 {
+    field(PINI, "YES")
     field(DESC, "Reference Select for $(REF)")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),0) ref_select_$(REF)")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
+    info(autosaveFields, "VAL")
 }
 
 
