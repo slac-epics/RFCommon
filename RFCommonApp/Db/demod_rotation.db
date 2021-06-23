@@ -117,6 +117,7 @@ record(longin, "$(DEVICE):DMOD_ROT_Q$(CHN)")
 record(stringin, "$(DEVICE):DMOD_LABEL$(CHN)")
 {
     field(DESC, "Demod channel label")
+    field(PINI, "YES")
     info(autosaveFields, "VAL")
 }
 
