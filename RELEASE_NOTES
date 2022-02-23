@@ -1,3 +1,5 @@
+R1.7.4         Feb 2, 2022  egumtow
+                - upgrade asyn to R4.39-1.0.1
 
 R1.7.3         Oct 11, 2021  M. Dunning
                 - Upgrade asyn to R4.39-0.0.1, yamlLoader to R2.2.0
