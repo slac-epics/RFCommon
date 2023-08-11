@@ -1,3 +1,6 @@
+R1.7.5         Aug 10, 2023  M. Skoufis
+                - Add support for RHEL7
+
 R1.7.4         Feb 2, 2022  egumtow
                 - upgrade asyn to R4.39-1.0.1
 
