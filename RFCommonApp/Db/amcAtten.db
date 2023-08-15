@@ -6,13 +6,6 @@ record(ao, "$(DEVICE):$(AMC)_ATTEN$(CHN)")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(PINI, "YES")
-#    field(EGU,  "$(EGU)")
-#    field(LINR, "$(LINR)")
-#    field(EGUL, "$(EGUL)")
-#    field(EGUF, "$(EGUF)")
-#    field(DRVH, "$(DRVH)")
-#    field(DRVL, "$(DRVL)")
-#    field(PREC, "$(PREC)")
     info(autosaveFields, "VAL")
 }
 
