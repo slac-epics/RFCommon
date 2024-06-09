@@ -142,14 +142,49 @@ record(bi, "$(DEVICE):CLOCK_LOSSSTATUS")
 
 record(longout, "$(DEVICE):LOCK_THRESHOLD")
 {
-    field(DESC, "Lock Threshold")
+    field(DESC, "Phase Lock Threshold")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT),0) lock_threshold")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
     field(VAL,  "1638")
     field(PINI, "YES")
+	field(FLNK, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC")
     info(autosaveFields, "VAL")
+}
+
+# Conversion from RAW to EGU (Degree)
+record(calcout, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC")
+{
+	field(DESC, "Convert Phase Lock Threshold from RAW to EGU")
+    field(INPA, "$(DEVICE):LOCK_THRESHOLD")
+	field(CALC, "A/(2^15)")
+    field(OUT,  "$(DEVICE):LOCK_THRESHOLD_DEG PP")
+    field(ASG,  "Internal")
+	field(SDIS, "$(DEVICE):LOCK_THRESHOLD_CALC.PACT")
+}
+
+record(ao, "$(DEVICE):LOCK_THRESHOLD_DEG")
+{
+    field(DESC, "Phase Lock Threshold in Degree")
+    field(EGU,  "Degree")
+	field(PINI, "YES")
+    #field(DTYP, "asynFloat64")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(FLNK, "$(DEVICE):LOCK_THRESHOLD_CALC")
+    info(autosaveFields, "VAL")
+}
+
+# Convert from EGU (Degree) to RAW
+record(calcout, "$(DEVICE):LOCK_THRESHOLD_CALC")
+{
+    field(DESC, "Conver Phase Lock Threshold from EGU to RAW")
+    field(INPA, "$(DEVICE):LOCK_THRESHOLD_DEG")
+	field(CALC, "FLOOR(A*(2^15))")
+    field(OUT,  "$(DEVICE):LOCK_THRESHOLD PP")
+    field(ASG,  "Internal")
+    field(SDIS, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC.PACT")
 }
 
 record(longout, "$(DEVICE):LOSS_THRESHOLD")
