@@ -172,6 +172,7 @@ record(ao, "$(DEVICE):LOCK_THRESHOLD_DEG")
     #field(DTYP, "asynFloat64")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
+	field(PREC, "3")
     field(FLNK, "$(DEVICE):LOCK_THRESHOLD_CALC")
     info(autosaveFields, "VAL")
 }
