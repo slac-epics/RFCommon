@@ -149,7 +149,7 @@ record(longout, "$(DEVICE):LOCK_THRESHOLD")
     field(SCAN, "Passive")
     field(VAL,  "1638")
     field(PINI, "YES")
-	field(FLNK, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC")
+    field(FLNK, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC")
     info(autosaveFields, "VAL")
 }
 
@@ -157,10 +157,10 @@ record(longout, "$(DEVICE):LOCK_THRESHOLD")
 record(calcout, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC")
 {
 	field(DESC, "Convert Phase Lock Threshold from RAW to EGU")
-    field(INPA, "$(DEVICE):LOCK_THRESHOLD")
+        field(INPA, "$(DEVICE):LOCK_THRESHOLD")
 	field(CALC, "A/(2^15)")
-    field(OUT,  "$(DEVICE):LOCK_THRESHOLD_DEG PP")
-    field(ASG,  "Internal")
+        field(OUT,  "$(DEVICE):LOCK_THRESHOLD_DEG PP")
+        field(ASG,  "Internal")
 	field(SDIS, "$(DEVICE):LOCK_THRESHOLD_CALC.PACT")
 }
 
@@ -168,21 +168,20 @@ record(ao, "$(DEVICE):LOCK_THRESHOLD_DEG")
 {
     field(DESC, "Phase Lock Threshold in Degree")
     field(EGU,  "Degree")
-	field(PINI, "YES")
-    #field(DTYP, "asynFloat64")
+    field(PINI, "YES")
     field(OMSL, "supervisory")
     field(SCAN, "Passive")
-	field(PREC, "3")
+    field(PREC, "3")
     field(FLNK, "$(DEVICE):LOCK_THRESHOLD_CALC")
     info(autosaveFields, "VAL")
 }
 
-# Convert from EGU (Degree) to RAW
+# Conversion from EGU (Degree) to RAW
 record(calcout, "$(DEVICE):LOCK_THRESHOLD_CALC")
 {
-    field(DESC, "Conver Phase Lock Threshold from EGU to RAW")
+    field(DESC, "Convert Phase Lock Threshold from EGU to RAW")
     field(INPA, "$(DEVICE):LOCK_THRESHOLD_DEG")
-	field(CALC, "FLOOR(A*(2^15))")
+    field(CALC, "FLOOR(A*(2^15))")
     field(OUT,  "$(DEVICE):LOCK_THRESHOLD PP")
     field(ASG,  "Internal")
     field(SDIS, "$(DEVICE):LOCK_THRESHOLD_DEG_CALC.PACT")
@@ -197,7 +196,41 @@ record(longout, "$(DEVICE):LOSS_THRESHOLD")
     field(SCAN, "Passive")
     field(VAL,  "8192")
     field(PINI, "YES")
+    field(FLNK, "$(DEVICE):LOSS_THRESHOLD_NORM_CALC")
     info(autosaveFields, "VAL")
+}
+
+# Conversion from RAW to NORM
+record(calcout, "$(DEVICE):LOSS_THRESHOLD_NORM_CALC")
+{
+	field(DESC, "Convert AMPL LOSS Threshold from RAW to NORM")
+        field(INPA, "$(DEVICE):LOSS_THRESHOLD")
+	field(CALC, "A/(2^15)")
+        field(OUT,  "$(DEVICE):LOSS_THRESHOLD_NORM PP")
+        field(ASG,  "Internal")
+	field(SDIS, "$(DEVICE):LOSS_THRESHOLD_CALC.PACT")
+}
+
+record(ao, "$(DEVICE):LOSS_THRESHOLD_NORM")
+{
+    field(DESC, "Loss Threshold in Amplitude (Norm)")
+    field(PINI, "YES")
+    field(OMSL, "supervisory")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(FLNK, "$(DEVICE):LOSS_THRESHOLD_CALC")
+    info(autosaveFields, "VAL")
+}
+
+# Conversion from NORM to RAW
+record(calcout, "$(DEVICE):LOSS_THRESHOLD_CALC")
+{
+    field(DESC, "Convert Phase Lock Threshold from NORM to RAW")
+    field(INPA, "$(DEVICE):LOSS_THRESHOLD_NORM")
+    field(CALC, "FLOOR(A*(2^15))")
+    field(OUT,  "$(DEVICE):LOSS_THRESHOLD PP")
+    field(ASG,  "Internal")
+    field(SDIS, "$(DEVICE):LOSS_THRESHOLD_NORM_CALC.PACT")
 }
 
 record(bo, "$(DEVICE):LO_LOCKCNTRESET")
