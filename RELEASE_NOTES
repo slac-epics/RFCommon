@@ -1,3 +1,6 @@
+R1.7.8         Nov 22, 2024  Kukhee Kim
+               - upgrade yamlLoader R2.3.7 and asyn R4.39-1.0.2
+
 R1.7.7         June 11, 2024 Kuktae Kim
                 - Implement backward compatibility between raw and degree values in Phase Threshold for the clock and LO PLL
                 - Implement backward compatibility between raw and normalized values in Amplitude Loss Threshold for the clock and LO PLL
