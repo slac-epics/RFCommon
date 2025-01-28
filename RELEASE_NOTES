@@ -1,3 +1,6 @@
+R1.7.9         Jan 27, 2025  Jeremy Lorelli
+               - Upgrade yamlLoader to R2.3.8, commonRF to R1.4.1, cpsw to R4.5.2
+
 R1.7.8         Nov 22, 2024  Kukhee Kim
                - upgrade yamlLoader R2.3.7 and asyn R4.39-1.0.2
 
